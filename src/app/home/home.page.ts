@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  name = environment.name;
   handlerMessage = '';
   roleMessage = '';
   constructor(private toastController: ToastController) {}
@@ -15,7 +17,7 @@ export class HomePage {
     const toast = await this.toastController.create({
       message: 'Hello World!',
       duration: 3000,
-      htmlAttributes: {'aria-live': 'assertive'},
+      htmlAttributes: {'aria-label':''},
       buttons: [
         {
           text: 'More Info',
